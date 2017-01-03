@@ -3,9 +3,11 @@
 ##Https stappen
 ------
 ###No-ip on vm
-
+als root user werken op het systeem
 ```
 sudo su
+```
+```
 cd /usr/local/src/
 wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
 tar xf noip-duc-linux.tar.gz
