@@ -22,3 +22,9 @@ sudo apt-get install python-certbot-apache -t jessie-backports
 ```
 En de stappen van de installer volgen.
 Kies hier best voor de "secure" optie.
+
+Hierna surf je naar https://[jedomein] en zie je dat dit nu secure is.
+Je kan ook even nakijken op SSL Labs
+![alt text][scure]
+
+[scure]: https://github.com/NickVermeylen/WebApp-Project-Repo/blob/master/SSL%20check.png "SSL check"
