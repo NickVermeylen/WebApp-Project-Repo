@@ -16,9 +16,13 @@ Met laravel (Login, database, ..)
 ###Services
 * Eigen apache webserver runnen op een VM (uiteindelijk niet gebruikt)
 --> VMWare geinstalleerd
+
 --> Student version aangevraagd
+
 --> ubuntu-server 16.04 image op geinstalleerd
+
 --> https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04
+
 * [Apache op RPI](./webserver.md)
 * [Eigen domein(noip)](./No-ip.md)
 
