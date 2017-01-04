@@ -1,17 +1,24 @@
 #Project Webapplications
 ======
-##Https stappen
+##Let's encrypt
 ------
-###No-ip on vm
-als root user werken op het systeem
+###Omschrijving
+Let's encrypt een CA (certificate authority) die volledig gratis en anatoom te installeren is op je server.
+###Installeren
+Certbot installeren afgeleid uit deze [tutorial](https://certbot.eff.org/#debianjessie-apache "Certbot tutorial")
+
+Een lijn toevoegen om Jessie-backports toe te voegen om "unstable" programs te kunnen draaien
+
 ```
-sudo su
+sudo nano /etc/apt/sources.list
+deb http://ftp.debian.org/debian jessie-backports main
 ```
 ```
-cd /usr/local/src/
-wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
-tar xf noip-duc-linux.tar.gz
-cd noip-2.1.9-1/
-make install
+sudo apt-get update
 ```
-####daarna inloggen met no-ip.org account
+Certbot paktten binnenhalen
+```
+sudo apt-get install python-certbot-apache -t jessie-backports
+```
+En de stappen van de installer volgen.
+Kies hier best voor de "secure" optie.
