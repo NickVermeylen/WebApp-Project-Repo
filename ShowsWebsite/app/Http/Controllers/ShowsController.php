@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\File;
-use App\Http\Requests;
-use Storage;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -34,17 +32,6 @@ class ShowsController extends Controller
     //file opslaan in database
     public function store(Request $request)
     {
-        /*$show = new File($request->all());
-        $show->user_id=Auth::id();
-        $show->name;
-        $name=Carbon::parse($show->name);
-        $show->name=$name;
-        $description=Carbon::parse("$show->description");
-        $show->description=$description;
-        $path=Carbon::parse("$show->path");
-        $show->path=$path;
-        $show->save();*/
-
         $this->validate($request, [
             'name' =>'required',
             'description'=>'required',
@@ -56,10 +43,17 @@ class ShowsController extends Controller
         ]);
 
         $show = new File($request->all());
-        $show->name       = Input::get('name');
-        $show->user_id      = Auth::id();
-        $show->description      = Input::get('description');
-        $show->path = Input::get('path');
+        $show->user_id = Auth::id();
+
+        //allemaal automatisch
+        /*$show->name = Input::get('name');
+        $show->description = Input::get('description');
+        $show->path = Input::get('path');*/
+
+        /*$newFile = request()->file('show');
+        $newFile->storeAs('shows/' . Auth::id(), $show->name);*/
+        //dd($newFile);
+        //dd($show);
         $show->save();
 
         Session::flash('success_upload', 'Upload gelukt');
@@ -81,11 +75,7 @@ class ShowsController extends Controller
 
     public function update(Request $request, File $show)
     {
-        /*$show = File::find($id);
-        $show->name       = Input::get('name');
-        $show->description      = Input::get('description');*/
         $show->update($request->all());
-
         Session::flash('message', 'Successfully updated show!');
         return Redirect::to('shows');
     }
@@ -96,7 +86,7 @@ class ShowsController extends Controller
         if($show->user_id == Auth::id() || Auth::id() == 1)
         {
             $show->delete();
-            Session::flash('message', 'Successfully deleted the nerd!');
+            Session::flash('message', 'Successfully deleted the show!');
             return Redirect::to('shows');
         }
         else{

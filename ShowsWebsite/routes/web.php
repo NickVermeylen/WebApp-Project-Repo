@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-//Route::get('/create', 'ShowsController@create');
 Route::resource('shows', 'ShowsController');
+Route::resource('users', 'UserController');
+Route::get("users/{user}/admin/{status}","userController@setAdmin");

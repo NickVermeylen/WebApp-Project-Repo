@@ -3,6 +3,15 @@
 @section("content")
     <div class="container">
     <h1 >Adding a new show</h1>
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <form class="form-horizontal" action={{ url('shows') }} method="POST">
         {{ csrf_field() }}
         <div class="form-group">

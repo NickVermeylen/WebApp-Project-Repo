@@ -10,6 +10,7 @@
             <strong>description:</strong> {{ $show->description }}<br>
             <strong>file:</strong> {{ $show->path }}
         </p>
+        <object data='/storage/slideshows/{{$show->user_id}}/{{$show->filename}}' width='100%' height='100%'></object>
     </div>
     </div>
 @stop
