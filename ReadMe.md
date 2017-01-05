@@ -15,6 +15,7 @@ Met laravel (Login, database, ..)
 
 ###Services
 * Eigen apache webserver runnen op een VM (uiteindelijk niet gebruikt)
+
 --> VMWare geinstalleerd
 
 --> Student version aangevraagd
