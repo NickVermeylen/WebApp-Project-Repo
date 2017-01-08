@@ -8,8 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>The Show Hub</title>
+    <!-- Favicon -->
+    <link rel="title icon" href="{{asset('tv-icon.ico')}}">
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/freelancer.css" rel="stylesheet">
