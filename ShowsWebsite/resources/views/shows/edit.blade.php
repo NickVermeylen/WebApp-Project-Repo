@@ -3,7 +3,7 @@
 @section("content")
     <div class="container">
         <h1>{{$show->name}}</h1>
-        <form class="form-horizontal" action={{ url('shows/update') }} method="POST">
+        <form class="form-horizontal" action={{ url('shows/update') }} method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{method_field('PATCH')}}
             <div class="form-group">

@@ -9,11 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>The Show Hub</title>
-    <!-- Favicon -->
-    <link rel="title icon" href="{{asset('tv-icon.ico')}}">
+    <link rel="title icon" href="{{asset('img/tv-icon.ico')}}">
+
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/freelancer.css" rel="stylesheet">
+    <link href="/slideshow/laravel/public/css/app.css" rel="stylesheet">
+    <link href="/slideshow/laravel/public/css/freelancer.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -86,6 +86,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="/slideshow/laravel/public/js/app.js"></script>
 </body>
 </html>

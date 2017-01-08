@@ -8,9 +8,11 @@
         <h2>{{ $show->name }}</h2>
         <p>
             <strong>description:</strong> {{ $show->description }}<br>
-            <strong>file:</strong> {{ $show->path }}
         </p>
-        <object data='/storage/slideshows/{{$show->user_id}}/{{$show->filename}}' width='100%' height='100%'></object>
+        <h2>Pdf:</h2>
+        <div class='embed-responsive' style='padding-bottom:150%'>
+            <object data='/slideshow/laravel/storage/app/public/docs/{{ $show->user_id}}/{{$show->name }}.pdf' type='application/pdf' width='100%' height='500px'></object>
+        </div>
     </div>
     </div>
 @stop

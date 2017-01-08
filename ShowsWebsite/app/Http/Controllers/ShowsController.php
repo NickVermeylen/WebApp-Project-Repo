@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Storage;
 
 class ShowsController extends Controller
 {
@@ -44,18 +44,29 @@ class ShowsController extends Controller
 
         $show = new File($request->all());
         $show->user_id = Auth::id();
+        $file = request()->file('path');
+        $file->storeAs('docs/' . auth::id(), $show->name . '.pdf');
 
+
+        //All het gekloot ervoor
+        //return dd($show);
         //allemaal automatisch
         /*$show->name = Input::get('name');
         $show->description = Input::get('description');
         $show->path = Input::get('path');*/
 
-        /*$newFile = request()->file('show');
-        $newFile->storeAs('shows/' . Auth::id(), $show->name);*/
-        //dd($newFile);
+        //$newFile = new File (request()->all());
+        //return dd($newFile);
+        //$newFile->storeAs('shows/' . Auth::id(), $show->name);
+        //return dd($newFile);
+        /*Storage::put(
+            '/docs/'.Auth::id().$show->path,
+            $show);*/
+            //file_get_contents($request->file('filename')->getRealPath()));
         //dd($show);
-        $show->save();
+        //$show->storeAs('docs/' . auth::id(), $show->name);
 
+        $show->save();
         Session::flash('success_upload', 'Upload gelukt');
         return Redirect::to('shows');
     }
@@ -75,7 +86,8 @@ class ShowsController extends Controller
 
     public function update(Request $request, File $show)
     {
-        $show->update($request->all());
+        //$new = new File($request->all());
+        //$show->update($new);
         Session::flash('message', 'Successfully updated show!');
         return Redirect::to('shows');
     }
@@ -86,6 +98,7 @@ class ShowsController extends Controller
         if($show->user_id == Auth::id() || Auth::id() == 1)
         {
             $show->delete();
+            Storage::delete('docs/'.$show->user_id.'/'.$show->name.'.pdf');
             Session::flash('message', 'Successfully deleted the show!');
             return Redirect::to('shows');
         }

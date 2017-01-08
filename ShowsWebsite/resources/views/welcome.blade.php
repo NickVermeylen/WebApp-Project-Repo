@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>The Show Hub</title>
+    <link rel="title icon" href="{{asset('img/tv-icon.ico')}}">
 
     <!-- Styles -->
     <link href="/slideshow/laravel/public/css/app.css" rel="stylesheet">

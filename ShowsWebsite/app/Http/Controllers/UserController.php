@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -43,7 +44,13 @@ class UserController extends Controller
             Session::flash('message', "User deleted! Bye Bye");
             return redirect()->back();
         }
-        Session::flash('message', "You're not ADMIN! Can't delete");
+        elseif (Auth::user() == $user)
+        {
+            $user->delete();
+            Session::flash('message', "User deleted! Bye Bye");
+            return Redirect::to('/');
+        }
+        Session::flash('message', "You're not ADMIN! You can only delete yourself.");
         return redirect()->back();
     }
 }

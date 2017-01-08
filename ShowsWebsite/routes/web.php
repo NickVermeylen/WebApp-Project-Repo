@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index');
 Route::resource('shows', 'ShowsController');
 Route::resource('users', 'UserController');
 Route::get("users/{user}/admin/{status}","userController@setAdmin");
+Route::patch('shows/update, ShowsController@update');

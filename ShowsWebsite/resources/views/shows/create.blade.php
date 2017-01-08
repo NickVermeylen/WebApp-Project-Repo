@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-    <form class="form-horizontal" action={{ url('shows') }} method="POST">
+    <form class="form-horizontal" action={{ url('shows') }} method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label class="control-label col-sm-2" for="name" name="name">Name:</label>
