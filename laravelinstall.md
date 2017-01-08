@@ -42,6 +42,11 @@ Permissies van de storage en vendor directory aanpassen
 sudo chown www-data:www-data /var/www/slideshow/storage
 sudo chown www-data:www-data /var/www/slideshow/vendor
 ```
+Ook nog
+```
+sudo chmod -R 777 /var/www/slideshow/storage
+```
+anders Internal Server Error 500, unable to open stream to .../storage
 
 Rewrite mode aanzetten voor apache
 ```
